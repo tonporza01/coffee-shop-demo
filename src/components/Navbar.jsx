@@ -21,6 +21,18 @@ export default function Navbar({ activeSection, onNavigate }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const handleLinkClick = (id) => {
     setIsOpen(false);
     onNavigate(id);
@@ -33,7 +45,17 @@ export default function Navbar({ activeSection, onNavigate }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => handleLinkClick('home')}>
+          <div 
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                handleLinkClick('home');
+              }
+            }}
+            className="flex-shrink-0 flex items-center cursor-pointer outline-none focus:ring-2 focus:ring-accent-gold/40 rounded-2xl p-1" 
+            onClick={() => handleLinkClick('home')}
+          >
             <div className="bg-gradient-to-br from-accent-gold to-coffee-600 p-2 rounded-xl mr-3 shadow-md border border-accent-gold/20">
               <Coffee className="h-6 w-6 text-accent-darkBg" />
             </div>

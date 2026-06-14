@@ -65,6 +65,9 @@ export default function About() {
               <img 
                 src={dripCoffee} 
                 alt="Craft Drip Coffee" 
+                loading="lazy"
+                width="500"
+                height="600"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>

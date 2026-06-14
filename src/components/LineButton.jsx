@@ -3,12 +3,12 @@ export default function LineButton() {
     <div className="fixed bottom-6 right-6 z-40 group">
       {/* Tooltip */}
       <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-accent-lineGreen text-white text-xs font-heading font-semibold py-2 px-3.5 rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-white/10">
-        แอดไลน์สั่งเครื่องดื่ม @AromaOasis
+        ติดต่อผู้พัฒนา Line ID: 11aprily
       </span>
 
       {/* Button */}
       <a
-        href="https://line.me/ti/p/@aromaoasis"
+        href="https://line.me/ti/p/~11aprily"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 bg-accent-lineGreen text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 relative"

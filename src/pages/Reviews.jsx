@@ -38,28 +38,38 @@ export default function Reviews() {
     rating: 5,
     comment: ''
   });
+  const [errors, setErrors] = useState({ name: '', comment: '' });
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const handleRatingClick = (rating) => {
     setFormData({ ...formData, rating });
   };
 
+  const validate = () => {
+    let tempErrors = {};
+    if (!formData.name.trim()) tempErrors.name = "กรุณากรอกชื่อของคุณ";
+    if (!formData.comment.trim()) tempErrors.comment = "กรุณากรอกรายละเอียดรีวิว";
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.comment) return;
+    if (validate()) {
+      const newReviewItem = {
+        id: Date.now(),
+        name: formData.name,
+        rating: formData.rating,
+        date: "เมื่อสักครู่",
+        comment: formData.comment
+      };
 
-    const newReviewItem = {
-      id: Date.now(),
-      name: formData.name,
-      rating: formData.rating,
-      date: "เมื่อสักครู่",
-      comment: formData.comment
-    };
-
-    setReviews([newReviewItem, ...reviews]);
-    setFormData({ name: '', rating: 5, comment: '' });
-    setSubmitSuccess(true);
-    setTimeout(() => setSubmitSuccess(false), 4000);
+      setReviews([newReviewItem, ...reviews]);
+      setFormData({ name: '', rating: 5, comment: '' });
+      setErrors({ name: '', comment: '' });
+      setSubmitSuccess(true);
+      setTimeout(() => setSubmitSuccess(false), 4000);
+    }
   };
 
   return (
@@ -119,12 +129,17 @@ export default function Reviews() {
                   <label className="block text-xs font-heading font-semibold text-coffee-300 uppercase mb-2">ชื่อของคุณ</label>
                   <input
                     type="text"
-                    required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                      if (errors.name) setErrors({ ...errors, name: '' });
+                    }}
                     placeholder="เช่น คุณสมชาย รักกาแฟ"
-                    className="w-full bg-accent-darkBg border border-white/10 hover:border-accent-gold/30 focus:border-accent-gold rounded-xl py-3 px-4 text-sm text-white focus:outline-none transition-colors font-sans"
+                    className={`w-full bg-accent-darkBg border rounded-xl py-3 px-4 text-sm text-white focus:outline-none transition-colors font-sans ${
+                      errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 hover:border-accent-gold/30 focus:border-accent-gold'
+                    }`}
                   />
+                  {errors.name && <p className="text-red-400 text-xs mt-1.5 font-sans">⚠️ {errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-xs font-heading font-semibold text-coffee-300 uppercase mb-2">ให้คะแนนความพึงพอใจ</label>
@@ -152,13 +167,18 @@ export default function Reviews() {
               <div>
                 <label className="block text-xs font-heading font-semibold text-coffee-300 uppercase mb-2">ความเห็นของคุณ</label>
                 <textarea
-                  required
                   rows="3"
                   value={formData.comment}
-                  onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, comment: e.target.value });
+                    if (errors.comment) setErrors({ ...errors, comment: '' });
+                  }}
                   placeholder="เขียนรีวิว เช่น บริการดี กาแฟหอมเบเกอรี่อร่อยมาก..."
-                  className="w-full bg-accent-darkBg border border-white/10 hover:border-accent-gold/30 focus:border-accent-gold rounded-xl py-3 px-4 text-sm text-white focus:outline-none transition-colors font-sans resize-none"
+                  className={`w-full bg-accent-darkBg border rounded-xl py-3 px-4 text-sm text-white focus:outline-none transition-colors font-sans resize-none ${
+                    errors.comment ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 hover:border-accent-gold/30 focus:border-accent-gold'
+                  }`}
                 ></textarea>
+                {errors.comment && <p className="text-red-400 text-xs mt-1.5 font-sans">⚠️ {errors.comment}</p>}
               </div>
 
               <div className="flex justify-end">

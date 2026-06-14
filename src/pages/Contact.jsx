@@ -79,28 +79,50 @@ export default function Contact() {
 
               {/* Icon Information Blocks */}
               <div className="space-y-4 text-sm font-sans">
+                {/* Contact Person */}
                 <div className="flex p-4 bg-accent-cardBg/40 border border-white/5 rounded-2xl">
-                  <MapPin className="w-5 h-5 text-accent-gold mr-4 shrink-0 mt-0.5" />
+                  <div className="w-5 h-5 text-accent-gold mr-4 shrink-0 mt-0.5 flex items-center justify-center font-bold text-sm">👤</div>
                   <div>
-                    <h3 className="font-heading font-bold text-white mb-1">ที่ตั้งร้าน</h3>
-                    <p className="text-coffee-300">123 ถนนนิมมานเหมินท์ ซอย 9 ต.สุเทพ อ.เมือง จ.เชียงใหม่ 50200</p>
+                    <h3 className="font-heading font-bold text-white mb-1">ผู้พัฒนาเว็บไซต์ (Contact Person)</h3>
+                    <p className="text-accent-gold font-semibold">AP Web Development</p>
                   </div>
                 </div>
 
-                <div className="flex p-4 bg-accent-cardBg/40 border border-white/5 rounded-2xl">
-                  <Clock className="w-5 h-5 text-accent-gold mr-4 shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="font-heading font-bold text-white mb-1">เวลาทำการ</h3>
-                    <p className="text-coffee-300">จันทร์ - ศุกร์: 07:00 - 18:00 น.</p>
-                    <p className="text-accent-gold font-medium">เสาร์ - อาทิตย์: 08:00 - 19:00 น.</p>
-                  </div>
-                </div>
-
+                {/* Quotation Phone replacement */}
                 <div className="flex p-4 bg-accent-cardBg/40 border border-white/5 rounded-2xl">
                   <Phone className="w-5 h-5 text-accent-gold mr-4 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-heading font-bold text-white mb-1">เบอร์โทรศัพท์</h3>
-                    <a href="tel:053123456" className="text-coffee-300 hover:text-accent-gold transition-colors">053-123-456</a>
+                    <p className="text-coffee-300">ติดต่อเพื่อขอใบเสนอราคา (Contact for quotation)</p>
+                  </div>
+                </div>
+
+                {/* Line ID */}
+                <div className="flex p-4 bg-accent-cardBg/40 border border-white/5 rounded-2xl">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-accent-gold mr-4 shrink-0 mt-0.5">
+                    <path d="M24 10.3c0-5.7-5.4-10.3-12-10.3S0 4.6 0 10.3c0 5.1 4.3 9.3 10.1 10.1.4.1.9.3.9.7v2c0 .4.2.6.5.6.3 0 .5-.1.7-.3l2.8-2.8c3.9-1.2 9-5.1 9-10.3zm-14.7 3H8v-5.2c0-.4-.3-.7-.7-.7s-.7.3-.7.7v5.9c0 .4.3.7.7.7h2c.4 0 .7-.3.7-.7s-.3-.7-.7-.7zm3.4-5.9c0-.4-.3-.7-.7-.7s-.7.3-.7.7v5.9c0 .4.3.7.7.7s.7-.3.7-.7V7.4zm5.5 0h-2.2v3.7h-.3V7.4h-2.2v5.9h4.7v-.7h-4V10.4h4V7.4zm4.4 0h-3.4v5.9h3.4v-.7h-2.7V10.4h2.4v-.7h-2.4V8.1h2.7v-.7z" />
+                  </svg>
+                  <div>
+                    <h3 className="font-heading font-bold text-white mb-1">Line ID</h3>
+                    <a href="https://line.me/ti/p/~11aprily" target="_blank" rel="noopener noreferrer" className="text-coffee-300 hover:text-accent-gold transition-colors font-semibold">11aprily</a>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex p-4 bg-accent-cardBg/40 border border-white/5 rounded-2xl">
+                  <Mail className="w-5 h-5 text-accent-gold mr-4 shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-heading font-bold text-white mb-1">อีเมล (Email)</h3>
+                    <a href="mailto:tonporza01@gmail.com" className="text-coffee-300 hover:text-accent-gold transition-colors font-semibold">tonporza01@gmail.com</a>
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="flex p-4 bg-accent-cardBg/40 border border-white/5 rounded-2xl">
+                  <MapPin className="w-5 h-5 text-accent-gold mr-4 shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-heading font-bold text-white mb-1">ที่ตั้งร้านสาธิต</h3>
+                    <p className="text-coffee-300">123 ถนนนิมมานเหมินท์ ซอย 9 ต.สุเทพ อ.เมือง จ.เชียงใหม่ 50200</p>
                   </div>
                 </div>
               </div>
@@ -142,7 +164,7 @@ export default function Contact() {
               </div>
 
               <a
-                href="https://maps.google.com"
+                href="https://maps.google.com/?q=Nimman+Soi+9+Chiang+Mai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-center font-heading text-xs font-bold text-accent-gold hover:text-white transition-colors py-2 border border-accent-gold/20 hover:border-accent-gold rounded-xl z-10"
@@ -231,7 +253,7 @@ export default function Contact() {
                     className={`w-full bg-accent-darkBg border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-accent-gold transition-colors font-sans ${
                       errors.email ? 'border-red-500/50' : 'border-white/10 hover:border-accent-gold/30'
                     }`}
-                    placeholder="example@mail.com"
+                    placeholder="yourname@domain.com"
                   />
                   {errors.email && (
                     <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1 font-sans">

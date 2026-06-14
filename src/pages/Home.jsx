@@ -24,7 +24,7 @@ export default function Home({ onNavigate }) {
       icon: <Tag className="w-8 h-8 text-accent-gold" />,
       title: "Line Add Friend",
       subtitle: "แอดไลน์ลดทันที 10%",
-      description: "แอดไลน์ @AromaOasis รับคูปองส่วนลด 10% สำหรับใช้เป็นส่วนลดในการซื้อเครื่องดื่มแก้วแรกที่หน้าร้าน",
+      description: "แอดไลน์ Line ID: 11aprily รับคูปองส่วนลด 10% สำหรับใช้เป็นส่วนลดในการซื้อเครื่องดื่มแก้วแรกที่หน้าร้าน (ข้อมูลสาธิต)",
       tag: "เพื่อนใหม่"
     }
   ];
@@ -59,6 +59,8 @@ export default function Home({ onNavigate }) {
           <img 
             src={cafeInterior} 
             alt="Cafe Interior" 
+            loading="eager"
+            fetchpriority="high"
             className="w-full h-full object-cover scale-105 filter brightness-50"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-accent-darkBg via-accent-darkBg/60 to-transparent"></div>
